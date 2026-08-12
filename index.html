@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy 5th Monthsary! ✨</title>
+
+  <!-- Google Fonts: Cute Core Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Gaegu:wght@400;700&family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      /* Cream & Soft Blue Palette */
+      --bg-cream: #FFFDF7;
+      --card-cream: #FFF9EE;
+      --soft-blue: #A0C4FF;
+      --pastel-blue: #B9D5FF;
+      --deep-blue: #4A7BB0;
+      --text-dark: #2C3E50;
+      --border-blue: #D0E1FD;
+      --shadow: 0 10px 25px rgba(160, 196, 255, 0.25);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-cream);
+      color: var(--text-dark);
+      font-family: 'Quicksand', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      /* Cute subtle dotted background grid */
+      background-image: radial-gradient(var(--pastel-blue) 1.5px, transparent 1.5px);
+      background-size: 24px 24px;
+    }
+
+    .app-container {
+      background: var(--card-cream);
+      border: 3px solid var(--border-blue);
+      border-radius: 30px;
+      width: 100%;
+      max-width: 520px;
+      padding: 35px 25px;
+      box-shadow: var(--shadow);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* SVG Icon Styling */
+    .icon-svg {
+      width: 48px;
+      height: 48px;
+      fill: none;
+      stroke: var(--deep-blue);
+      stroke-width: 2.2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      margin-bottom: 10px;
+    }
+
+    /* Screen Management */
+    .page {
+      display: none;
+      animation: fadeIn 0.4s ease-in-out forwards;
+    }
+
+    .page.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Typography */
+    .title-cute {
+      font-family: 'Fredoka', cursive;
+      color: var(--deep-blue);
+      font-size: 2.4rem;
+      letter-spacing: 0.5px;
+      margin-bottom: 12px;
+      text-shadow: 2px 2px 0px #E1ECFE;
+    }
+
+    .subtitle {
+      font-family: 'Gaegu', cursive;
+      font-size: 1.4rem;
+      color: #6C8EA4;
+      margin-bottom: 25px;
+    }
+
+    /* Cute Buttons */
+    .btn {
+      font-family: 'Fredoka', cursive;
+      background: var(--soft-blue);
+      color: #FFF;
+      border: none;
+      padding: 12px 28px;
+      border-radius: 20px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      box-shadow: 0 4px 0px var(--deep-blue);
+      transition: all 0.2s ease;
+      margin: 8px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 0px var(--deep-blue);
+    }
+
+    .btn:active {
+      transform: translateY(2px);
+      box-shadow: 0 2px 0px var(--deep-blue);
+    }
+
+    .btn-secondary {
+      background: #E2E8F0;
+      color: #64748B;
+      box-shadow: 0 4px 0px #94A3B8;
+    }
+
+    .btn-secondary:hover {
+      box-shadow: 0 6px 0px #94A3B8;
+    }
+
+    /* Input Style */
+    input[type="password"] {
+      font-family: 'Quicksand', sans-serif;
+      width: 80%;
+      padding: 14px;
+      border: 2px solid var(--border-blue);
+      background: #FFF;
+      border-radius: 18px;
+      font-size: 1.1rem;
+      text-align: center;
+      color: var(--text-dark);
+      outline: none;
+      margin-bottom: 15px;
+    }
+
+    input[type="password"]:focus {
+      border-color: var(--deep-blue);
+    }
+
+    /* Menu Grid */
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+      margin-top: 20px;
+    }
+
+    .menu-card {
+      background: #FFFFFF;
+      border: 2px solid var(--border-blue);
+      border-radius: 22px;
+      padding: 22px 15px;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .menu-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--deep-blue);
+      box-shadow: 0 8px 20px rgba(160, 196, 255, 0.3);
+    }
+
+    .menu-card h3 {
+      font-family: 'Fredoka', cursive;
+      font-size: 1.1rem;
+      color: var(--deep-blue);
+    }
+
+    /* --- PAGE 1: SCROLLING PARCHMENT LETTER --- */
+    .scroll-container {
+      background: #FFFDF9;
+      border: 2px dashed var(--soft-blue);
+      border-radius: 20px;
+      padding: 25px;
+      max-height: 320px;
+      overflow-y: auto;
+      text-align: left;
+      font-family: 'Gaegu', cursive;
+      font-size: 1.35rem;
+      line-height: 1.6;
+      color: #334E68;
+      box-shadow: inset 0 0 10px rgba(0,0,0,0.02);
+      margin-bottom: 20px;
+    }
+
+    .scroll-container::-webkit-scrollbar {
+      width: 8px;
+    }
+    .scroll-container::-webkit-scrollbar-thumb {
+      background: var(--soft-blue);
+      border-radius: 10px;
+    }
+
+    /* --- PAGE 2: OPEN WHEN ENVELOPES --- */
+    .envelope-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 20px;
+      max-height: 320px;
+      overflow-y: auto;
+      padding-right: 5px;
+    }
+
+    .envelope-list::-webkit-scrollbar {
+      width: 6px;
+    }
+    .envelope-list::-webkit-scrollbar-thumb {
+      background: var(--soft-blue);
+      border-radius: 10px;
+    }
+
+    .envelope-item {
+      background: #FFF;
+      border: 2px solid var(--border-blue);
+      padding: 12px 16px;
+      border-radius: 16px;
+      text-align: left;
+      cursor: pointer;
+      font-family: 'Fredoka', cursive;
+      color: var(--deep-blue);
+      font-size: 0.95rem;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .envelope-item:hover {
+      background: #F0F6FF;
+      border-color: var(--deep-blue);
+    }
+
+    .envelope-modal {
+      display: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 253, 247, 0.96);
+      padding: 25px;
+      border-radius: 30px;
+      box-sizing: border-box;
+      z-index: 10;
+      animation: fadeIn 0.3s ease-in-out forwards;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .envelope-modal.active {
+      display: flex;
+    }
+
+    .envelope-modal-title {
+      font-family: 'Fredoka', cursive;
+      color: var(--deep-blue);
+      font-size: 1.4rem;
+      margin-bottom: 12px;
+    }
+
+    .envelope-modal-body {
+      background: #FFFDF9;
+      border: 2px dashed var(--soft-blue);
+      border-radius: 18px;
+      padding: 20px;
+      font-family: 'Gaegu', cursive;
+      font-size: 1.3rem;
+      line-height: 1.5;
+      color: #334E68;
+      text-align: left;
+      max-height: 280px;
+      overflow-y: auto;
+      white-space: pre-line;
+    }
+
+    /* --- PAGE 3: NOTE JAR --- */
+    .jar-wrapper {
+      margin: 20px 0;
+      cursor: pointer;
+      display: inline-block;
+      transition: transform 0.3s ease;
+    }
+
+    .jar-wrapper:hover {
+      transform: scale(1.08) rotate(3deg);
+    }
+
+    .note-paper {
+      background: #FFF;
+      border: 2px dashed var(--soft-blue);
+      border-radius: 18px;
+      padding: 20px;
+      font-family: 'Gaegu', cursive;
+      font-size: 1.4rem;
+      color: var(--deep-blue);
+      min-height: 90px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+    }
+
+    .back-nav {
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="app-container">
+
+    <!-- PAGE 0: PASSWORD -->
+    <div id="page-password" class="page active">
+      <svg class="icon-svg" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+      <h1 class="title-cute">Secret Vault</h1>
+      <p class="subtitle">Enter our special code to open your gift!</p>
+      
+      <input type="password" id="passInput" placeholder="Enter password...">
+      <br>
+      <button class="btn" onclick="checkPassword()">Unlock</button>
+      <p id="passError" style="color: #E53E3E; font-size: 0.9rem; margin-top: 10px; display: none; font-family: 'Quicksand';">Incorrect code! Try again 💕</p>
+    </div>
+
+    <!-- PAGE 0.5: GREETING -->
+    <div id="page-greeting" class="page">
+      <svg class="icon-svg" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+      <h1 class="title-cute">Happy 5th Monthsary!</h1>
+      <p class="subtitle">Ready to open your 5th monthsary surprise?</p>
+
+      <button class="btn" onclick="showPage('page-dashboard')">Yes, Please!</button>
+      <button class="btn btn-secondary" onclick="refuseEntry()">No</button>
+      <p id="refuseMsg" class="subtitle" style="margin-top: 15px; font-size: 1.1rem; color: #E53E3E;"></p>
+    </div>
+
+    <!-- PAGE: DASHBOARD (4 MENUS) -->
+    <div id="page-dashboard" class="page">
+      <h1 class="title-cute">Our Space</h1>
+      <p class="subtitle">Select a page to explore</p>
+
+      <div class="menu-grid">
+        <!-- Menu 1 -->
+        <div class="menu-card" onclick="showPage('page-letter')">
+          <svg class="icon-svg" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+          <h3>Love Letter</h3>
+        </div>
+
+        <!-- Menu 2 -->
+        <div class="menu-card" onclick="showPage('page-openwhen')">
+          <svg class="icon-svg" viewBox="0 0 24 24"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+          <h3>Open When...</h3>
+        </div>
+
+        <!-- Menu 3 -->
+        <div class="menu-card" onclick="showPage('page-jar')">
+          <svg class="icon-svg" viewBox="0 0 24 24"><path d="M12 2v20M17 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2z"></path></svg>
+          <h3>Love Note Jar</h3>
+        </div>
+
+        <!-- Menu 4: Timeline -->
+        <div class="menu-card" onclick="showPage('page-memories')">
+          <svg class="icon-svg" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+          <h3>Our Timeline</h3>
+        </div>
+      </div>
+    </div>
+
+    <!-- SEPARATE PAGE 1: LOVE LETTER (Scrolled Up) -->
+    <div id="page-letter" class="page">
+      <h1 class="title-cute">My Letter For You</h1>
+      <p class="subtitle">Scroll down to read...</p>
+
+      <div class="scroll-container">
+        Dear my love,
+
+Happy 5th monthsary darling ko! It's another month of us, and I'm just so happy that I got to celebrate it with you and it's still you. I love you so much and thank you for everything you've done, your patience, love and everything poh. And thank you for staying even if I'm probably getting harder to deal with, with my random tantrums, mood swings and shit hshsh. I love you so much and appreciate that more than anything!
+
+Honestly, sitting here writing this and thinking about us makes me realize how crazy lucky I am to have you as my wife. But at the same time, it brings up all the times I messed up and hurt you. I want to apologize for everything poh. I know I've hurt you a lot and I am so deeply sorry. If my actions ever confused you in a bad way, please know it was never my intention to make you overthink or make you cry. I know you sometimes try to hide it or lie about being fine just so I won't worry, but I know the truth hshsh. I felt so foolish realizing how selfish I was being, and I honestly didn't know what to do at first to make up for my mistakes and foolishness.
+
+I love you, My Love, I always do. No matter how bad or frustrating my days can get, that will never be a reason for me to love you any less. I still do, so much! In fact, I'm loving you more and more every single day to the point that it gets terrifying because I know how risky it is to lose you, my dear. I can't even imagine my life without you anymore and the thought of losing you scares me to death poh. You are my safe place, my comfort after a long tiring day and my entire world hshsh.
+
+Looking back at everything, it breaks my heart to know I caused you stress when all you ever deserve is pure peace and happiness. You give me so much warmth, understanding and endless love, yet there were times I was too caught up in my own head to treat you the way you truly deserve. I took your softness for granted and instead of being your safe space, I added to your overthinking. That was so wrong of me and I carry that regret heavily in my heart. I want to spend every day making it up to you and showing you that you can trust me completely with your feelings.
+
+I know words are easy to say, but I really want to prove things to you through my actions. I don't want you to ever feel insecure or doubtful about my feelings for you ever again. Every time you smile, every time you laugh with me, it reminds me why you are my whole world. I want to be the reason behind your continuous happiness, not your tears. I want to be the person who makes you feel safe, loved and completely cherished every single second.
+
+Thank you for being my rock, my best friend and my beloved wife. Thank you for your endless patience with me, even when I'm being super difficult hshsh. I promise to work on myself, to listen to you more and to show you every day how much you mean to me. We are in this together through everything and I'm never letting you go.
+
+Happy 5th monthsary again, my love! I love you endlessly, today and always, my dear wife forever and ever.
+      </div>
+
+      <div class="back-nav">
+        <button class="btn btn-secondary" onclick="showPage('page-dashboard')">← Back to Menu</button>
+      </div>
+    </div>
+
+    <!-- SEPARATE PAGE 2: OPEN WHEN -->
+    <div id="page-openwhen" class="page">
+      <h1 class="title-cute">Open When...</h1>
+      <p class="subtitle">Pick an envelope when you need comfort</p>
+
+      <div class="envelope-list">
+        <div class="envelope-item" onclick="openEnvelope(0)">
+          <svg class="icon-svg" style="width:20px; height:20px; margin:0;" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+          1. ...you miss me
+        </div>
+        <div class="envelope-item" onclick="openEnvelope(1)">
+          <svg class="icon-svg" style="width:20px; height:20px; margin:0;" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+          2. ...you’re having a bad day
+        </div>
+        <div class="envelope-item" onclick="openEnvelope(2)">
+          <svg class="icon-svg" style="width:20px; height:20px; margin:0;" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+          3. ...you can't sleep or overthinking
+        </div>
+        <div class="envelope-item" onclick="openEnvelope(3)">
+          <svg class="icon-svg" style="width:20px; height:20px; margin:0;" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+          4. ...you feel insecure or doubt yourself
+        </div>
+        <div class="envelope-item" onclick="openEnvelope(4)">
+          <svg class="icon-svg" style="width:20px; height:20px; margin:0;" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+          5. ...we had a silly fight or argument
+        </div>
+        <div class="envelope-item" onclick="openEnvelope(5)">
+          <svg class="icon-svg" style="width:20px; height:20px; margin:0;" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+          6. ...you feel like crying
+        </div>
+        <div class="envelope-item" onclick="openEnvelope(6)">
+          <svg class="icon-svg" style="width:20px; height:20px; margin:0;" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+          7. ...you're stressed with work or life
+        </div>
+        <div class="envelope-item" onclick="openEnvelope(7)">
+          <svg class="icon-svg" style="width:20px; height:20px; margin:0;" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+          8. ...you need a smile
+        </div>
+        <div class="envelope-item" onclick="openEnvelope(8)">
+          <svg class="icon-svg" style="width:20px; height:20px; margin:0;" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+          9. ...you feel lonely
+        </div>
+        <div class="envelope-item" onclick="openEnvelope(9)">
+          <svg class="icon-svg" style="width:20px; height:20px; margin:0;" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+          10. ...you just want to feel loved
+        </div>
+      </div>
+
+      <!-- Pop-up Reading Card for Envelopes -->
+      <div id="envelopeModal" class="envelope-modal">
+        <div>
+          <h2 id="modalTitle" class="envelope-modal-title">Title</h2>
+          <div id="modalBody" class="envelope-modal-body">Body...</div>
+        </div>
+        <button class="btn btn-secondary" style="margin-top: 15px;" onclick="closeEnvelope()">Close Letter</button>
+      </div>
+
+      <div class="back-nav">
+        <button class="btn btn-secondary" onclick="showPage('page-dashboard')">← Back to Menu</button>
+      </div>
+    </div>
+
+    <!-- SEPARATE PAGE 3: LOVE NOTE JAR -->
+    <div id="page-jar" class="page">
+      <h1 class="title-cute">The Love Jar</h1>
+      <p class="subtitle">Tap the jar to pull out a note!</p>
+
+      <div class="jar-wrapper" onclick="pullNote()">
+        <svg class="icon-svg" style="width: 80px; height: 80px;" viewBox="0 0 24 24">
+          <path d="M19 8H5a2 2 0 0 0-2 2v9a3 3 0 0 0 3 3h12a3 3 0 0 0 3-3v-9a2 2 0 0 0-2-2z"></path>
+          <path d="M7 5a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v3H7V5z"></path>
+          <line x1="12" y1="12" x2="12" y2="16"></line>
+          <line x1="10" y1="14" x2="14" y2="14"></line>
+        </svg>
+      </div>
+
+      <div class="note-paper" id="jarOutput">Click the jar above!</div>
+
+      <div class="back-nav">
+        <button class="btn btn-secondary" onclick="showPage('page-dashboard')">← Back to Menu</button>
+      </div>
+    </div>
+
+    <!-- SEPARATE PAGE 4: TIMELINE -->
+    <div id="page-memories" class="page">
+      <h1 class="title-cute">5 Months Story</h1>
+      <p class="subtitle">Our mini journey so far</p>
+
+      <div class="scroll-container" style="max-height:260px;">
+        <b>Month 1:</b> Where it all started... ✨<br>
+        <b>Month 2:</b> Learning every little thing about you.<br>
+        <b>Month 3:</b> Endless laughs and favorite memories.<br>
+        <b>Month 4:</b> Growing closer every single day.<br>
+        <b>Month 5:</b> Right here, loving you more than ever!
+      </div>
+
+      <div class="back-nav">
+        <button class="btn btn-secondary" onclick="showPage('page-dashboard')">← Back to Menu</button>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    // Configurable Secret Password
+    const PASSCODE = "0313"; 
+
+    // The 10 Open When Letters
+    const openWhenLetters = [
+      {
+        title: "Open when you miss me",
+        content: "My love,\n\nI miss you too, so much! If you’re opening this right now, I’m probably not by your side to hold your hand or give you a big hug, but please know you’re always in my mind and heart. Distance or busy hours don't change how much I love you. Close your eyes for a second and imagine me hugging you tight poh. I’ll be back talking to you soon, darling ko. I love you endlessly!"
+      },
+      {
+        title: "Open when you’re having a bad day",
+        content: "Darling ko,\n\nI’m so sorry today was tough on you poh. I wish I could just magically wipe away everything that’s bothering you right now hshsh. Whatever happened today, please don’t carry it all on your shoulders. You did your best today and I am so, so proud of you. Take a deep breath, stretch a little and rest your mind. I’m always here for you, in good days and bad days. I love you!"
+      },
+      {
+        title: "Open when you can't sleep or overthinking",
+        content: "My beloved wife,\n\nHey, turn off those heavy thoughts poh hshsh. I know how your brain likes to wander at night and make you overthink things, but please remember that you are safe with me. Whatever you’re worrying about right now, we will face it together tomorrow. You don't have to figure everything out tonight. Just close your eyes, rest your heart and remember how deeply loved you are by me. Goodnight, my love!"
+      },
+      {
+        title: "Open when you feel insecure or doubt yourself",
+        content: "My love,\n\nIf you're opening this because you're feeling down about yourself, stop right there poh! You are literally the most amazing, beautiful and wonderful person in my whole life. I know sometimes your mind plays tricks on you, but to me, you are absolute perfection. Never doubt your worth or how precious you are. I see how hard you try, how soft your heart is and how lucky I am to have you as my wife hshsh. I love you so much!"
+      },
+      {
+        title: "Open when we had a silly fight or argument",
+        content: "Darling ko,\n\nI’m sorry poh. Whatever we argued about, my love for you is still 100% there and nothing will ever change that. I hate when we're not on good terms or when things get tense hshsh. Please know it’s always us against the problem, never you against me. I love you way too much to let a foolish misunderstanding ruin our day. Let’s talk it out gently, okay? I’m ready to listen and cuddle you."
+      },
+      {
+        title: "Open when you feel like crying",
+        content: "My love,\n\nIt’s completely okay to cry poh. Let it all out, don't hold back your tears. You don't always have to be strong, especially not with me. I wish I could hold you right now and wipe away every single tear hshsh. Just let your heart breathe for a moment. You are not alone, you are never a burden and I will always be right here to comfort you through everything."
+      },
+      {
+        title: "Open when you're stressed out with work or life",
+        content: "Darling ko,\n\nPause for a second poh! Put down whatever you’re doing, take a slow deep breath and drink some water hshsh. You are working so hard and I admire you so much for that, but please don't forget to take care of yourself too. Don't stress yourself out too much, okay? Work and responsibilities can wait, but your health and peace of mind come first. You’re doing great, my love!"
+      },
+      {
+        title: "Open when you need a smile",
+        content: "My beloved wife,\n\nJust a quick reminder that somewhere out there, there’s a foolish guy who is completely, madly in love with you hshsh! Yes, that’s me! You have the sweetest smile in the world, and knowing that you're mine makes me the happiest person alive. Now give me a little smile right now poh, because seeing you happy makes my whole world brighter!"
+      },
+      {
+        title: "Open when you feel lonely",
+        content: "My love,\n\nEven if I’m not physically there with you right now, please remember that you are never alone poh. My heart is always with you wherever you go. You are my home, my best friend and my favorite person in the entire universe. Whenever you feel lonely, just read my messages or play our favorite songs and know that I am counting down the minutes until I get to talk to you or see you again hshsh."
+      },
+      {
+        title: "Open when you just want to feel loved",
+        content: "Darling ko,\n\nIn case nobody told you today: I love you so much poh! I love your laugh, your voice, your random tantrums, your soft heart and every single tiny thing about you hshsh. You make my life so much better just by being in it. Loving you is the easiest and best thing I have ever done, and I will keep choosing you and loving you more every single day, forever and ever!"
+      }
+    ];
+
+    // Array of notes for the jar
+    const loveNotes = [
+      "You always make my day brighter ✨",
+      "I love your laugh so much hshsh!",
+      "Thank you for being my safe place, my wife 🤍",
+      "You are my absolute favorite person in the world poh.",
+      "Thinking of you makes me smile automatically!",
+      "I am so lucky to have you as my darling ko.",
+      "Here's to many more months and years together!"
+      [
+  "Every moment with you is my favorite memory hshsh!",
+  "Thank you for understanding my mood swings and tantrums poh.",
+  "You're the sweetest part of my everyday life 🌸",
+  "I love you more than words can ever say, darling ko!",
+  "Just hearing your voice fixes my worst days 🥹",
+  "You will always be my one and only, my beloved wife 💖",
+  "Never forget how deeply and genuinely I adore you poh.",
+  "I'm so blessed that I get to call you mine hshsh!",
+  "Thank you for holding my heart so gently 🤍",
+  "You make all my worries melt away instantly!",
+  "I love you today, tomorrow, and forever my love ✨",
+  "Hope you ate well today, don't forget to stay hydrated poh!",
+  "My heart is always fullest whenever I'm with you 🫂",
+  "You're my home, my comfort, and my entire world hshsh!",
+  "Sending you the biggest virtual hug right now darling ko 💌",
+  "Thank you for being so patient with me through everything poh.",
+  "No matter what happens, it's always going to be you 💗",
+  "You truly bring so much peace into my life!",
+  "Seeing your name on my phone makes me so happy hshsh!",
+  "Forever grateful for your love and warmth, my dear wife 🌹"
+]
+      
+    ];
+
+    // Password verification logic
+    function checkPassword() {
+      const val = document.getElementById('passInput').value;
+      if (val === PASSCODE) {
+        showPage('page-greeting');
+      } else {
+        document.getElementById('passError').style.display = 'block';
+      }
+    }
+
+    // Interactive 'No' button behavior
+    function refuseEntry() {
+      const messages = [
+        "Are you sure? Try pressing Yes! 😉",
+        "Wrong button! Click Yes 💕",
+        "Come on darling, you have to enter!"
+      ];
+      const randomMsg = messages[Math.floor(Math.random() * messages.length)];
+      document.getElementById('refuseMsg').innerText = randomMsg;
+    }
+
+    // Page Router Function
+    function showPage(pageId) {
+      document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
+      document.getElementById(pageId).classList.add('active');
+    }
+
+    // Envelope Popup Logic
+    function openEnvelope(index) {
+      const letter = openWhenLetters[index];
+      document.getElementById('modalTitle').innerText = letter.title;
+      document.getElementById('modalBody').innerText = letter.content;
+      document.getElementById('envelopeModal').classList.add('active');
+    }
+
+    function closeEnvelope() {
+      document.getElementById('envelopeModal').classList.remove('active');
+    }
+
+    // Note Jar Puller
+    function pullNote() {
+      const note = loveNotes[Math.floor(Math.random() * loveNotes.length)];
+      document.getElementById('jarOutput').innerText = note;
+    }
+  </script>
+</body>
+</html>
